@@ -32,30 +32,19 @@ public class RPN {
 				numero = Double.parseDouble(temp);
 				pushPila(numero);
 			} else if(commando.charAt(i) == '+') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a + b);
+				suma();
 			} else if(commando.charAt(i) == '-') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a - b);
+				resta();
 			} else if(commando.charAt(i) == '*') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a * b);
+				producto();
 			} else if(commando.charAt(i) == '/') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a / b);
+				division();
 			}
 			else if(commando.charAt(i) == '^') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(Math.pow(a, b));}
+				potencia();
+			}
 			else if(commando.charAt(i) == '%') {
-				b = popPila( );
-				a = popPila( );
-				pushPila(a%b);
+				residuo();
 			} else if(commando.charAt(i) != ' ') {
 				throw new IllegalArgumentException( );
 			}
@@ -65,6 +54,48 @@ public class RPN {
 			throw new IllegalArgumentException( );
 		}
 		return val;
+	}
+	public void residuo() {
+		double a;
+		double b;
+		b = popPila( );
+		a = popPila( );
+		pushPila(a%b);
+	}
+	public void potencia() {
+		double a;
+		double b;
+		b = popPila( );
+		a = popPila( );
+		pushPila(Math.pow(a, b));
+	}
+	public void division() {
+		double a;
+		double b;
+		b = popPila( );
+		a = popPila( );
+		pushPila(a / b);
+	}
+	public void producto() {
+		double a;
+		double b;
+		b = popPila( );
+		a = popPila( );
+		pushPila(a * b);
+	}
+	public void resta() {
+		double a;
+		double b;
+		b = popPila( );
+		a = popPila( );
+		pushPila(a - b);
+	}
+	public void suma() {
+		double a;
+		double b;
+		b = popPila( );
+		a = popPila( );
+		pushPila(a + b);
 	}
 	private String commando;
 	private NodoPila arriba;
