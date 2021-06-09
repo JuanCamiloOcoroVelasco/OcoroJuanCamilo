@@ -8,9 +8,9 @@ public class TestRPN{
 	
 	public static void main(String args[]) {
 		while(true) {
-			Scanner in = new Scanner(System.in);
+			Scanner leer = new Scanner(System.in);
 			System.out.println("Introduce expresion Postfija o teclea \"fin\".");
-			String linea = in.nextLine( );
+			String linea = leer.nextLine( );
 			if(linea.equals("fin")) {
 				System.out.println("Fin de programa");
 				break;
